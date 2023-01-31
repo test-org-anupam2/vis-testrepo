@@ -39,6 +39,9 @@ jobs:
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+          
+          # Logout after publishing
+          docker logout ghcr.io
 
       - name: Login to Container Registry with PAT
         run: echo "${{ secrets.GH_PAT }}" | docker login ghcr.io -u $ --password-stdin
@@ -60,3 +63,6 @@ jobs:
           echo VERSION=$VERSION
           docker tag $IMAGE_NAME $IMAGE_ID:$VERSION
           docker push $IMAGE_ID:$VERSION
+          
+          # Logout after publishing
+          docker logout ghcr.io          
