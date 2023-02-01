@@ -48,7 +48,7 @@ jobs:
 
       - name: Push image with PAT
         run: |
-          docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}" --label "org.opencontainers.image.source=https://github.com/panchalshubhamorg1/testrepo"
+          docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}" --label "org.opencontainers.image.source=https://github.com/${{ github.repository }} }}"
 
           IMAGE_ID=ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME/pat2
           # Change all uppercase to lowercase
